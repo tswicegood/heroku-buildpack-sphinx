@@ -1,0 +1,8 @@
+pkg: zlib-1.2.7
+dist: zlib-1.2.7-0
+src_fn: zlib-1.2.7.tar.gz
+home: http://zlib.net/
+license: ??? (http://zlib.net/zlib_license.html)
+has_bin: False
+has_lib: True
+has_py: False

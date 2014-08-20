@@ -1,0 +1,5 @@
+#!/tmp/heroku-buildpack-sphinx/src/miniconda-3.6.0/bin/python
+import sys
+from conda.cli import main
+
+sys.exit(main())

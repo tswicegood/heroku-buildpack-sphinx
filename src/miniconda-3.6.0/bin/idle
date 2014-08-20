@@ -1,0 +1,5 @@
+#!/tmp/heroku-buildpack-sphinx/src/miniconda-3.6.0/bin/python
+
+from idlelib.PyShell import main
+if __name__ == '__main__':
+    main()
