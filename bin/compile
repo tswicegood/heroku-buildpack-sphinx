@@ -92,7 +92,8 @@ fi
 source bin/activate 
 pip install sphinx --use-mirrors
 pip install oauth2==1.5.211 Flask==0.8 Flask-OpenID==1.0.1 python-openid==2.2.5 --use-mirrors
-bin/conda install -y -p . -c continuumio continuum-sphinx-theme
+
+$ROOT_DIR/src/miniconda-3.6.0/bin/conda install -y -p . -c continuumio continuum-sphinx-theme
 CONF_FILE=$(find . -name 'conf.py' | head -1)
 PROJECT=$(dirname $CONF_FILE)
 pushd $PROJECT/..
