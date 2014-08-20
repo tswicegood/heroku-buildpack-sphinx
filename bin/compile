@@ -95,14 +95,14 @@ pip install oauth2==1.5.211 Flask==0.8 Flask-OpenID==1.0.1 python-openid==2.2.5 
 CONF_FILE=$(find . -name 'conf.py' | head -1)
 PROJECT=$(dirname $CONF_FILE)
 pushd $PROJECT
-make html
+make dirhtml
 popd
 
 rm -rf $CACHE_DIR/.heroku
 mkdir -p $CACHE_DIR/.heroku
 mkdir $ROOT_DIR/src/app/templates
 mv $ROOT_DIR/src/app $CACHE_DIR/.heroku/
-mv $PROJECT/_build/html/* $CACHE_DIR/.heroku/app/templates/
+mv $PROJECT/_build/dirhtml/* $CACHE_DIR/.heroku/app/templates/
 cp -R $CACHE_DIR/.heroku .
 
 if [ -f requirements.txt ]; 
