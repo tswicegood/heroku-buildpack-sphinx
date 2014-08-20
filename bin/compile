@@ -16,6 +16,14 @@ PIP_DOWNLOAD_CACHE=${PIP_DOWNLOAD_CACHE:-$CACHE_DIR/pip_downloads}
 VIRTUALENV_DIRS="bin include lib .heroku"
 VENDORED_MEMCACHED="http://cl.ly/0a191R3K160t1w1P0N25/vendor-libmemcached.tar.gz"
 
+# TODO There's probably a better way to bootstrap miniconda, we should do that
+MINICONDA_VERSION="3.6.0"
+MINICONDA_FILENAME="Miniconda-$MINICONDA_VERSION-Linux-x86_64.sh"
+MINICONDA_URL="http://repo.continuum.io/miniconda/$MINICONDA_FILENAME"
+
+wget $MINICONDA_URL
+./$MINICONDA_FILENAME -b -p .
+
 indent() {
   RE="s/^/       /"
   [ $(uname) == "Darwin" ] && sed -l "$RE" || sed -u "$RE"
@@ -92,6 +100,8 @@ fi
 source bin/activate 
 pip install sphinx --use-mirrors
 pip install oauth2==1.5.211 Flask==0.8 Flask-OpenID==1.0.1 python-openid==2.2.5 --use-mirrors
+bin/conda install -p . -c continuumio continuum-sphinx-theme
+
 CONF_FILE=$(find . -name 'conf.py' | head -1)
 PROJECT=$(dirname $CONF_FILE)
 pushd $PROJECT/..
